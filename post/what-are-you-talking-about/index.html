@@ -1,0 +1,1727 @@
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport"
+        content="width=device-width,initial-scale=1.0,minimum-scale=1.0,maximum-scale=1.0,user-scalable=0">
+    <meta name="description" content="What Are You Talking About
+
+来自 HDU OJ, 1075
+
+登陆账号提交代码
+
+Time Limit: 10000/5000 MS (Java/Others)  Memory Limit: 102400/204..." />
+    <meta name="keywords" content="Trie,std::map" />
+    <link rel="stylesheet" href="https://taivasjumala.github.io//media/css/bootstrap.min.css">
+    <link rel="stylesheet" href="https://taivasjumala.github.io//styles/main.css">
+    
+    <link rel="stylesheet" href="//cdn.jsdelivr.net/gh/highlightjs/cdn-release@9.18.1/build/styles/vs2015.min.css">
+    
+    <script src="//cdn.jsdelivr.net/gh/highlightjs/cdn-release@9.18.1/build/highlight.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/gh/850552586/ericamcdn@0.1/js/clipboard.min.js"></script>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/850552586/ericamcdn@0.1/css/live2d.css">
+    <script src="https://cdn.jsdelivr.net/npm/jquery@3.2.1/dist/jquery.min.js"></script>
+    <!-- 最新版本的 Bootstrap 核心 CSS 文件 -->
+    <link href="https://cdn.bootcdn.net/ajax/libs/font-awesome/5.13.1/css/all.min.css" rel="stylesheet">
+    <!-- 数学公式 -->
+    
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@0.10.0-beta/dist/katex.min.css"
+        integrity="sha384-9tPv11A+glH/on/wEu99NVwDPwkMQESOocs/ZGXPoIiLE8MU/qkqUcZ3zzL+6DuH" crossorigin="anonymous">
+    <script src="https://cdn.jsdelivr.net/npm/katex@0.10.0-beta/dist/katex.min.js"
+        integrity="sha384-U8Vrjwb8fuHMt6ewaCy8uqeUXv4oitYACKdB0VziCerzt011iQ/0TqlSlv8MReCm" crossorigin="anonymous">
+        </script>
+    <script src="https://cdn.jsdelivr.net/npm/katex@0.10.0-beta/dist/contrib/auto-render.min.js"
+        integrity="sha384-aGfk5kvhIq5x1x5YdvCp4upKZYnA8ckafviDpmWEKp4afOZEqOli7gqSnh8I6enH" crossorigin="anonymous">
+        </script>
+    <script>
+        renderMathInElement(document.body, {
+            delimiters: [{
+                left: "$$",
+                right: "$$",
+                display: true
+            },
+            {
+                left: "$",
+                right: "$",
+                display: false
+            }
+            ]
+        });
+    </script>
+    
+    <title>Taivas Jumala</title>
+    
+    <style>
+        .markdownIt-TOC {
+            margin-left: 28%;
+            padding-left: 2px;
+            width: 80%;
+        }
+
+        .markdownIt-TOC li {
+            padding-left: 8%;
+        }
+    </style>
+    
+</head>
+
+<body>
+    <div id="landlord">
+        <div class="message" style="opacity:0"></div>
+        <canvas id="live2d" width="240" height="250" class="live2d"></canvas>
+    </div>
+    <div id="domainname" style="display:none">https://taivasjumala.github.io/</div>
+    <!-- 响应式布局，针对PC端内容显示 -->
+    <div id="content">
+        <div>
+            <div id="bar">
+                <head>
+  <!-- 引入Bootstrap核心样式文件 -->
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/850552586/ericamcdn@0.1/css/bootstrap.min.css">
+</head>
+<style>
+  .navmobile {
+    z-index: 15;
+    max-height: 40vh;
+    overflow-y: scroll;
+    overflow-x: hidden;
+  }
+
+  @media screen and (max-width: 1200px) {
+    .navbar {
+      max-width: 100vw;
+    }
+  }
+
+  @media screen and (max-width:1200px) and (min-width: 768px) {
+    @media (min-width: 768px) {
+      .navbar-nav {
+        float: right;
+        margin: 0;
+      }
+    }
+  }
+
+  @media screen and (max-width:768px) {
+    .mbapspan {
+      padding: 0;
+    }
+  }
+</style>
+<div class="pjaxloading"  onclick="pjaxloadingClose()">
+  <div class="loadingbackground"></div>
+  <div id="loading">
+    <div class="loading">
+    </div>
+  </div>
+</div>
+<nav class="navbar navbar-inverse navbar-fixed-top navmobile">
+  <div class="container-fluid">
+    <!-- Brand and toggle get grouped for better mobile display -->
+    <div class="navbar-header">
+      <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#barmenu"
+        aria-expanded="false" id="barbutton">
+        <span class="sr-only">Toggle navigation</span>
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span>
+      </button>
+      <a data-pjax class="navbar-brand" href="https://taivasjumala.github.io/">Taivas Jumala&nbsp;&nbsp;|</a>
+      <span class="navbar-brand mbapspan"><i id="mbaplayer" class="fa fa-play-circle-o" aria-hidden="true"
+          style="font-size: 28px;top: 12px;position: absolute;" onclick="aplayerPlay();"></i></span>
+    </div>
+
+    <!-- Collect the nav links, forms, and other content for toggling -->
+    <div class="collapse navbar-collapse" id="barmenu">
+      <ul class="nav navbar-nav">
+        
+        
+        <li>
+          <a data-pjax href="https://taivasjumala.github.io/">
+            首页
+          </a>
+        </li>
+        
+        
+        
+        <li>
+          <a data-pjax href="/archives">
+            归档
+          </a>
+        </li>
+        
+        
+        
+        <li>
+          <a data-pjax href="/tags">
+            标签
+          </a>
+        </li>
+        
+        
+        
+        <li><a data-pjax href="https://taivasjumala.github.io//talk">说说</a></li>
+        
+          
+        <li><a data-pjax href="https://taivasjumala.github.io//friends">友链</a></li>
+
+        
+        </ul>
+      </div><!-- /.navbar-collapse -->
+    </div><!-- /.container-fluid -->
+  </nav>
+
+
+  <!-- 引入jQuery核心js文件 -->
+  <script src="https://cdn.jsdelivr.net/npm/jquery@3.2.1/dist/jquery.min.js"></script>
+  <script>
+    let btstate = false;
+    var bt = $("#barbutton");
+    var bm = $("#barmenu");
+    bt.click(function () {
+      dropdown();
+    })
+    function dropdown() {
+      console.log(btstate);
+      //下拉
+      if (btstate == false) {
+        bt.removeClass("collapsed");
+        bt.attr("aria-expanded", "true");
+        bm.attr("aria-expanded", "true")
+        bm.fadeIn(700);
+        btstate = true;
+      }
+      else {
+        bt.addClass("collapsed");
+        bt.attr("aria-expanded", "false");
+        bm.removeClass("in");
+        bm.hide();
+        bm.attr("aria-expanded", "false");
+        btstate = false;
+      }
+    }
+  </script> 
+            </div>
+            <div class="row">
+                <div class="side"><head>
+    <link rel="stylesheet" href="https://taivasjumala.github.io//media/css/bootstrap.min.css">
+    <link rel="stylesheet" href="https://taivasjumala.github.io//styles/main.css">
+    
+    <link rel="stylesheet" href="//cdn.jsdelivr.net/gh/highlightjs/cdn-release@9.18.1/build/styles/vs2015.min.css">
+    
+    <script src="//cdn.jsdelivr.net/gh/highlightjs/cdn-release@9.18.1/build/highlight.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/gh/850552586/ericamcdn@0.1/js/clipboard.min.js"></script>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/850552586/ericamcdn@0.1/css/live2d.css">
+    <script src="https://cdn.jsdelivr.net/npm/jquery@3.2.1/dist/jquery.min.js"></script>
+    <!-- 最新版本的 Bootstrap 核心 CSS 文件 -->
+    <link href="https://cdn.bootcdn.net/ajax/libs/font-awesome/5.13.1/css/all.min.css" rel="stylesheet">
+    <!-- 数学公式 -->
+    
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@0.10.0-beta/dist/katex.min.css"
+        integrity="sha384-9tPv11A+glH/on/wEu99NVwDPwkMQESOocs/ZGXPoIiLE8MU/qkqUcZ3zzL+6DuH" crossorigin="anonymous">
+    <script src="https://cdn.jsdelivr.net/npm/katex@0.10.0-beta/dist/katex.min.js"
+        integrity="sha384-U8Vrjwb8fuHMt6ewaCy8uqeUXv4oitYACKdB0VziCerzt011iQ/0TqlSlv8MReCm" crossorigin="anonymous">
+        </script>
+    <script src="https://cdn.jsdelivr.net/npm/katex@0.10.0-beta/dist/contrib/auto-render.min.js"
+        integrity="sha384-aGfk5kvhIq5x1x5YdvCp4upKZYnA8ckafviDpmWEKp4afOZEqOli7gqSnh8I6enH" crossorigin="anonymous">
+        </script>
+    
+    
+</head>
+<style>
+    body{
+    cursor: url("https://taivasjumala.github.io//media/images/mouse_cursor.png"),auto
+    }
+    </style>
+
+<body>
+    
+    <script>
+        let menupos = 'left'
+    </script>
+    
+    
+    <script>
+        let shareChoice = false
+    </script>
+    
+    
+    <script>
+        let donateChoice = false
+    </script>
+    
+    
+    <script>
+        let searchChoice = true
+    </script>
+    
+    <script>let postsnum = 0;</script>
+    <div id="side-posttitle" style="display: none;">
+        
+    
+    What Are You Talking About-数据结构-字典树（Trie）
+    <script>postsnum += 1</script>
+    
+    
+    </div>
+    <div class="pjaxloading" onclick="pjaxloadingClose()">
+        <div class="loadingbackground"></div>
+        <div id="loading">
+            <div class="loading">
+            </div>
+        </div>
+    </div>
+    
+    <div id=side>
+        <a onclick="showAaplayer()"><i style="font-size: 20px;"><img
+                    src='https://taivasjumala.github.io//media/images/music.png' alt="音乐播放器" class="musicbtn"></i></a>
+        <div class="avatar-border">
+            <img src="https://taivasjumala.github.io//images/avatar.png?v=1619948970628" class="avatar">
+        </div>
+        <div class="sitename">Taivas Jumala</div>
+        <span class="describtion" data-text='[""]'>&nbsp;</span>
+        
+        <div class="search">
+            <!-- <input type="text" class="search-input" placeholder="标题搜索(●'◡'●)" /> -->
+            <input type="text" class="search-input" placeholder="标题搜索">
+            <div class="search-results"></div>
+        </div>
+        
+    <div class="share-button">
+        <span>社交按钮</span>
+        
+        <a href="https://github.com/Taivasjumala" target="_blank"><i style="font-size: 20px;"><img class="icon"
+                    src="https://taivasjumala.github.io//media/images/github.png" alt=""></i></a>
+        
+        
+        <a onclick="showqq()"><i style="font-size: 20px;"><img class="icon"
+                    src="https://taivasjumala.github.io//media/images/QQ.png" alt=""></i></a>
+        
+        
+        <a href="https://www.zhihu.com/people/taivasjumala" target="_blank"><i style="font-size: 20px;"><img class="icon"
+                    src="https://taivasjumala.github.io//media/images/zh.png" alt=""></i></a>
+        
+        
+        <a href="https://space.bilibili.com/30132444" target="_blank"><i style="font-size: 20px;"><img class="icon"
+                    src="https://taivasjumala.github.io//media/images/bilibili.png" alt=""></i></a>
+        
+        
+        <a href="https://u.wechat.com/MMUJhP53XR_01eezi6iuUCQ" target="_blank"><i style="font-size: 20px;"><img class="icon"
+                    src="https://taivasjumala.github.io//media/images/wechat.png" alt=""></i></a>
+        
+        
+        <a href="steam://friends/add/76561199096612031" target="_blank"><i style="font-size: 20px;"><img class="icon"
+                    src="https://taivasjumala.github.io//media/images/steam.png" alt=""></i></a>
+        
+    </div>
+    <div id="qq" style="display:none">tencent://AddContact/?fromId=45&amp;fromSubId=1&amp;subcmd=all&amp;uin=1374793936&amp;website=www.oicqzone.com</div>
+    
+    
+    <div class="mchocie describtion">
+        <a data-pjax href="https://taivasjumala.github.io/" class="menubutton">
+            首页
+        </a>
+    </div>
+    
+    
+    
+    <div class="mchocie describtion">
+        <a data-pjax href="/archives" class="menubutton">
+            归档
+        </a>
+    </div>
+    
+    
+    
+    <div class="mchocie describtion">
+        <a data-pjax href="/tags" class="menubutton">
+            标签
+        </a>
+    </div>
+    
+    
+    
+    <div class="mchocie describtion">
+        <a data-pjax href="https://taivasjumala.github.io//talk" class="menubutton">说说</a>
+    </div>
+    
+    
+    <div class="mchocie describtion">
+        <a data-pjax href="https://taivasjumala.github.io//friends" class="menubutton">友人帐</a>
+    </div>
+    
+    <hr>
+    <style>
+    .copyright {
+        font-size: 15px;
+        color: #d9d9d9;
+    }
+
+
+    @media screen and (min-width: 1200px) {
+        .foot {
+            width: 100%;
+            height: 130px;
+        }
+    }
+
+    @media screen and (max-width: 1200px) {
+        .foot {
+            display: none;
+        }
+    }
+</style>
+
+<body>
+    <div class="foot">
+        <div id="footinfo"> | Theme: <a
+                href="https://github.com/850552586/gridea-theme-fog">Fog</a>
+            <div>
+                
+            </div>
+            <div>
+                
+            </div>
+            <div class="copyright" style="color:white;text-align: center;">
+            </div>
+        </div>
+
+
+
+    </div>
+</body>
+
+    </div>
+
+
+    <script src="https://taivasjumala.github.io//media/js/wordshow.js"></script>
+    
+    
+</body>
+<script>
+    function showqq() {
+        var qq = document.getElementById("qq").innerHTML;
+        if (qq != '')
+            window.location.href = "tencent://message/?uin=" + qq + "&Site=&Menu=yes";
+        else
+            alert("博主暂未设置QQ联系方式");
+    }
+
+    //音乐播放器的显示
+    function showAaplayer() {
+        var aplayer = $(".aplayer-body");
+        if (aplayer.css("display") == 'block')
+            aplayer.fadeOut(200)
+        else
+            aplayer.fadeIn(200)
+    }
+</script>
+<script>
+    function getHotnum() {
+        //文章阅读热度（重构，利用leancloud原生api）
+        var pl = window.location.pathname;
+        if (pl.search("post") == -1)
+            return false;
+        if (pl[pl.length - 1] != '/')
+            pl += '/'
+        var ptitle = $("#ptitle").html();
+        var rootaddr = $("#rootaddr").html();
+        pl = pl.replace(rootaddr, "");
+        var appid = 'wRjCYEg7znvaXMw3KCAQlKKc-gzGzoHsz';
+        var appkey = 'OrxYMAUbXEvGeyfy47pDd3tv';
+        console.log(appid, appkey)
+        if (AV == undefined)
+            AV.init({
+                appId: appid,
+                appKey: appkey
+            });
+        const query = new AV.Query('Counter');
+        query.equalTo('url', pl);
+        var time = 'Loading...';
+        query.find().then(function (results) {
+            console.log(results)
+            if (results.length == 0) {
+                console.log("0")
+                var NewCounter = AV.Object.extend('Counter');
+                var nc = new NewCounter();
+                nc.save({
+                    time: 1,
+                    title: ptitle,
+                    url: pl,
+                    xid: pl,
+                }).then(function (object) {
+                    $(".hotnum").eq(0).html(1);
+                    $(".hotnum").eq(1).html(1);
+                });
+            } else {
+                id = results[0].id;
+                var todo = AV.Object.createWithoutData('Counter', id);
+                time = results[0].attributes.time + 1;
+                todo.set("time", time);
+                todo.save();
+                console.log(todo);
+                $(".hotnum").eq(0).html(time);
+                $(".hotnum").eq(1).html(time);
+            }
+
+        }, function (error) {
+            console.log(error)
+        });
+    }
+</script>
+    <script src="https://taivasjumala.github.io//media/share/dist/Share.js"></script>
+    <!-- 页面pjax测试 -->
+    <script src="https://cdn.bootcdn.net/ajax/libs/jquery.pjax/2.0.1/jquery.pjax.js"></script>
+    <!--确保jQuery已经在此之前加载-->
+    <script src="//cdn1.lncld.net/static/js/3.0.4/av-min.js"></script>
+    <script src="https://taivasjumala.github.io//media/js/all-pjax.js"></script>
+    <script>
+        //loading加载关闭
+        function pjaxloadingClose() {
+            var pjaxloading = $(".pjaxloading");
+            pjaxloading.hide();
+        }
+
+
+
+        function imglazyloadinit() {
+            var img = $("img");
+            for (var i = 0; i < img.length; i++) {
+                if (img.eq(i).attr("class") == undefined) {
+                    img.eq(i).attr("class", "lazyload");
+                    var imgsrc = img.eq(i).attr("src");
+                    img.eq(i).attr("data-original", imgsrc);
+                    img.eq(i).attr("src", "");
+                    img.eq(i).hide();
+                }
+            }
+        }
+
+        function sleep(ms) {
+            return new Promise(resolve => setTimeout(resolve, ms));
+        }
+
+        async function codebtncolorinit(e) {
+            await sleep(2000);
+            e.trigger.innerHTML = "复制代码"
+            e.trigger.style.background = "cornflowerblue"
+        }
+
+        function codeinit() {
+            //寻找所有code标签，加复制按钮鸭！(行内代码除外)
+            var codes = document.getElementsByTagName('code');
+            if (codes.length) {
+                for (var i = 0; i < codes.length; i++) {
+                    //高度/行高=文本行数
+                    // var rowNum=Math.round(codes[i].height()/parseFloat(codes[i].css('line-height')));
+                    // console.log("当前有"+rowNum+"行");
+                    var code_id = "code_id_" + i;
+                    codes[i].setAttribute("id", code_id);
+                    var ci = "#" + code_id;
+                    var codedot = $(ci);
+                    var rowNum = Math.round(codedot.height() / parseFloat(codedot.css('line-height')));
+                    if (rowNum <= 1) continue;
+                    var btn = document.createElement("button");
+                    btn.setAttribute("class", "copybt");
+                    btn.setAttribute("data-clipboard-target", "#" + code_id);
+                    btn.innerHTML = '复制代码';
+                    codes[i].parentNode.insertBefore(btn, codes[i]);
+                }
+            };
+            var cop = new ClipboardJS('.copybt');
+            cop.on('success', function (e) {
+                e.trigger.innerHTML = "复制成功~"
+                e.trigger.style.background = "#894e54"
+                codebtncolorinit(e)
+                e.clearSelection();
+            });
+            cop.on('error', function (e) {
+                alert("矮油，复制失败了...手动复制吧勇士！");
+                e.clearSelection();
+            });
+        }
+
+        function lazyload() {
+            var oLazyload = $("img.lazyload"),
+                fLazyload = function (hLazyload) {
+                    var nLazyload = $(window).height() + $(document).scrollTop();
+                    oLazyload.each(function () {
+                        $(this).offset().top < nLazyload && ($(this).trigger("appear"), oLazyload =
+                            oLazyload.not(this));
+                    }), 0 == oLazyload.length && $(window).unbind("scroll", fLazyload);
+                };
+            oLazyload.each(function () {
+                $(this).one("appear", function () {
+                    $(this).attr("src", $(this).attr("data-original"));
+                    $(this).fadeIn(500);
+                });
+            }), $(window).bind("scroll", fLazyload), fLazyload();
+        }
+
+        let talksall = [];
+        let talks = [];
+        let talkindex = 0;
+        get();
+        function get() {
+            var t = JSON.parse('[{"author":"","img":"","text":"","time":""}]');
+            talkindex = t.length - 1;
+            for (var i = 0; i <= t.length - 1; i++) {
+                var d = {};
+                d["time"] = t[i].time;
+                d["author"] = t[i].author;
+                d["text"] = t[i].text;
+                d["img"] = t[i].img;
+                talksall.push(d);
+            }
+        }
+
+        function add() {
+            for (var i = talkindex; i >= 0 && i > talkindex - 3; i--) {
+                talks.push(talksall[i]);
+            }
+            talkindex = (talkindex - 3) >= 0 ? (talkindex - 3) : -1;
+            if (talkindex < 0) $("#getmorebt").hide();
+            show();
+            refreshImg("talkimg");
+        }
+
+        function show() {
+            var talkT = document.getElementById("talkContainer");
+            talkT.innerHTML = "";
+            for (var i = 0; i < talks.length; i++) {
+                if (talks[i].img != '') {
+                    talkT.innerHTML += '\
+            <div class="talk" v-for="t in talks"> \
+                <img src="' + talks[i].img + '" class="talkimg"> \
+                <div class="ainfo">\
+                    <div class="ainfo-intro">\
+                        <img class="intro1" src="https://taivasjumala.github.io//images/avatar.png?v=1619948970628">\
+                        <div class="author">' + talks[i].author + '</div>·\
+                        <div class="time">' + talks[i].time + '</div>\
+                    </div>\
+                </div>\
+                <div class="talkcontent">' + talks[i].text + '\
+                </div\>\
+            ';
+                } else {
+                    talkT.innerHTML += '\
+            <div class="talk" v-for="t in talks"> \
+                <div class="ainfo">\
+                    <div class="ainfo-intro">\
+                        <img class="intro1" src="https://taivasjumala.github.io//images/avatar.png?v=1619948970628">\
+                        <div class="author">' + talks[i].author + '</div>·\
+                        <div class="time">' + talks[i].time + '</div>\
+                    </div>\
+                </div>\
+                <div class="talkcontent">' + talks[i].text + '\
+                </div\>\
+            ';
+                }
+            }
+        }
+
+        function refreshImg(imgclass) {
+            // 获取弹窗
+            var modal = document.getElementById('myModal');
+
+            // 获取图片插入到弹窗 - 使用 "alt" 属性作为文本部分的内容
+            var img = document.getElementsByClassName(imgclass);
+            var modalImg = document.getElementById("img01");
+            var captionText = document.getElementById("caption");
+            for (var i in img) {
+                img[i].onclick = function () {
+                    modal.style.display = "block";
+                    modalImg.src = this.src;
+                }
+            }
+
+            // 图片关闭
+            var modalImg = document.getElementById('img01');
+            // 鼠标点击模型外区域关闭登录框
+            window.onclick = function (event) {
+                console.log(event.target);
+                if (event.target == modal) {
+                    modal.style.display = "none";
+                }
+                if (menupos == 'left')
+                    return true;
+                if (event.target == social) {
+                    social.style.display = "none";
+                }
+            }
+        }
+
+        function shareInit() {
+            var title = document.getElementById("texttitle").getElementsByTagName("h2");
+            if (menupos == 'top') {
+                var avatarSrc = $(".menutopavatar").attr("src");
+                var dp = document.getElementsByClassName("navbar-brand")[1].innerHTML;
+            }
+            else {
+                var avatarSrc = $(".avatar").attr("src");
+                var dp = document.getElementsByClassName("describtion")[0].innerHTML;
+            }
+            var share = new Share('.share', {
+                title: title[0].innerHTML,
+                initialized: true,
+                //默认获取网站描述
+                description: dp,
+                //网站图片默认获取的是设置的用户头像
+                image: avatarSrc,
+                //激活的分享网站
+                sites: ["weibo", "qq", "wechat", "douban", "qzone", "facebook", "twitter", "google"],
+                //微信分享PC端会生成二维码分享,移动端如果可以唤起微信最好
+                wechatQrcodeTitle: "微信扫一扫：分享", // 微信二维码提示文字
+                wechatQrcodeHelper: '<p>微信里扫一下二维码</p><p>便可将本文分享至朋友圈。</p>',
+                //关闭的网站分享
+                disabled: ['google', 'linkedin'],
+                wechatQrcodePosition: 'bottom'
+            });
+            //点击分享按钮展现出分享icons
+            var sharebtnTag = false;
+            $(".sharebtn").click(function () {
+                if (!sharebtnTag) {
+                    $(".share").show();
+                    sharebtnTag = true;
+                }
+                else {
+                    $(".share").hide();
+                    sharebtnTag = false;
+                }
+            })
+        }
+
+        function donateInit() {
+            var donatebtnTag = false;
+            $(".donateImg").click(function () {
+                if (!donatebtnTag) {
+                    $(".donate").show();
+                    donatebtnTag = true;
+                }
+                else {
+                    $(".donate").hide();
+                    donatebtnTag = false;
+                }
+            })
+        }
+
+
+        let talkinit = false;
+        $(document).pjax('a[data-pjax]', '#main', {
+            fragment: '#main',
+            timeout: 8000
+        }).on('pjax:complete', function () {
+            //hljs.initHighlightingOnLoad();
+            document.querySelectorAll('pre code').forEach((block) => {
+                hljs.highlightBlock(block);
+            });
+            //文章热度
+            getHotnum();
+            //文章索引
+            toginit();
+            //清空搜索栏
+            if (searchChoice) {
+                searchInit();
+                searchInput.value = "";
+            }
+            var pl = window.location.pathname;
+            //说说更新
+            if (pl.search("talk") != -1 && !talkinit) {
+                add();
+                talkinit = true;
+            }
+            else if (pl.search("talk") != -1) {
+                show();
+                refreshImg("talkimg");
+            }
+            //分享按钮更新
+            if (pl.search("post") != -1) {
+                if (shareChoice)
+                    shareInit();
+                if (donateChoice)
+                    donateInit();
+                imglazyloadinit();
+                lazyload();
+                refreshImg("lazyload");
+                codeinit();
+            }
+            if (btstate == true)
+                dropdown();
+        }).on('pjax:start', function () {
+            $(".pjaxloading").fadeIn(50);
+        }).on('pjax:end', function () {
+            $(".pjaxloading").fadeOut(50);
+        });
+    </script>
+
+    <script>
+        /**
+         * https://github.com/tangkaichuan/gridea-search
+         */
+        (function () {
+            var CACHES = checkCache()
+            if (!CACHES) {
+                var NOW = Date.now()
+                var API_CONTENT = '../api-content/index.html' + '?_=' + NOW
+                preload(API_CONTENT);
+                getContents(show_getContentresult);
+            }
+
+            function show_getContentresult(data) {
+                console.log("获取成功");
+                var postslen = data["posts"].length;
+                localStorage.setItem('postsnum', postslen);
+                var poststitlelen = 0;
+                var pt = document.getElementById("side-posttitle").innerHTML;
+                pt = pt.replace(/\s+/g, '').replace(/<script>.*?<\/script>/gi, "");
+                localStorage.setItem('poststitlelen', pt.length);
+            }
+
+
+
+            // preload
+            function preload(url) {
+                var preloadLink = document.createElement('link')
+                preloadLink.href = url
+                preloadLink.rel = 'preload'
+                preloadLink.as = 'fetch'
+                preloadLink.crossOrigin = 'anonymous'
+                document.head.appendChild(preloadLink)
+            }
+
+            // 异步 GET 请求
+            function get(obj) {
+                var xhr = new XMLHttpRequest()
+                xhr.open('get', obj.url, true)
+                xhr.send(null)
+                xhr.onreadystatechange = function () {
+                    // 异步请求：响应状态为4，数据加载完毕
+                    if (xhr.readyState === 4) {
+                        if (xhr.status === 200) {
+                            obj.success(xhr.responseText)
+                        } else {
+                            obj.error(xhr.status)
+                        }
+                    }
+                }
+            }
+
+
+            // 检查缓存是否最新
+            function checkCache() {
+                var caches_postsnum = localStorage.getItem("postsnum");
+                var pt = document.getElementById("side-posttitle").innerHTML;
+                pt = pt.replace(/\s+/g, '').replace(/<script>.*?<\/script>/gi, "")
+                var ptlen = pt.length;
+                var ptlen_storage = localStorage.getItem("poststitlelen");
+                console.log(parseInt(postsnum));
+                if (caches_postsnum != postsnum || ptlen != ptlen_storage) {
+                    console.log("更新缓存");
+                    return false
+                }
+                return true;
+            }
+
+            // 获取博客全文 api
+            function getContents(callback) {
+                if (CACHES) {
+                    callback(CACHES.contents)
+                } else {
+                    get({
+                        url: API_CONTENT,
+                        success: function (data) {
+                            callback(JSON.parse(data));
+                            localStorage.setItem('ContentsCache', data);
+                        }
+                    })
+                }
+            }
+        })()
+
+        //-------------------------------------------------搜索
+        // 获取搜索框、搜索按钮、清空搜索、结果输出对应的元素
+        if (searchChoice) {
+            var searchInput = document.querySelector('.search-input');
+            var searchResults = document.querySelector('.search-results');
+        }
+        // 申明保存文章的标题、链接、内容的数组变量
+        var searchValue = '',
+            arrItems = [],
+            arrLinks = [],
+            arrTitles = [],
+            arrContents = [],
+            arrResults = [],
+            indexItem = [],
+            itemLength = 0;
+        var tmpDiv = document.createElement('div');
+        tmpDiv.className = 'result-item';
+
+
+        function getStorageContent() {
+            var data = localStorage.getItem('ContentsCache');
+            data = JSON.parse(data);
+            posts = data["posts"];
+            for (var i = 0; i < posts.length; i++) {
+                arrLinks[i] = posts[i].link;
+                arrTitles[i] = posts[i].title;
+                arrContents[i] = posts[i].content;
+                itemLength++;
+            }
+        }
+        getStorageContent();
+        // 输入框内容变化后就开始匹配，可以不用点按钮
+        // 经测试，onkeydown, onchange 等方法效果不太理想，
+        // 存在输入延迟等问题，最后发现触发 input 事件最理想，
+        // 并且可以处理中文输入法拼写的变化
+        searchInput.oninput = function () {
+            setTimeout(searchConfirm, 0);
+        }
+        searchInput.onfocus = function () {
+            searchResults.style.display = 'block';
+        }
+
+        function searchConfirm() {
+            if (searchInput.value == '') {
+                searchResults.style.display = 'none';
+            } else if (searchInput.value.search(/^\s+$/) >= 0) {
+                // 检测输入值全是空白的情况
+                searchInit();
+                var itemDiv = tmpDiv.cloneNode(true);
+                itemDiv.innerText = '请输入有效内容...';
+                searchResults.appendChild(itemDiv);
+            } else {
+                // 合法输入值的情况
+                searchInit();
+                searchValue = searchInput.value;
+                // 在标题、内容中查找
+                searchMatching(arrTitles, arrContents, searchValue);
+            }
+        }
+
+        // 每次搜索完成后的初始化
+        function searchInit() {
+            arrResults = [];
+            indexItem = [];
+            searchResults.innerHTML = '';
+            searchResults.style.display = 'block';
+        }
+
+        function searchMatching(arr1, arr2, input) {
+            // 忽略输入大小写
+            input = new RegExp(input, 'i');
+            var step = 10;
+            // 在所有文章标题、内容中匹配查询值
+            for (i = 0; i < itemLength; i++) {
+                var indexContent = arr2[i].search(input);
+                //标题匹配
+                if (arr1[i].search(input) != -1) {
+                    indexItem.push(i); // 保存匹配值的索引
+                    if (indexContent != -1) {
+                        startindex = (indexContent - step) >= 0 ? (indexContent - step) : 0;
+                        var searchcontent = arr2[i].slice(indexContent - step, indexContent + 5)
+                        arrResults.push("....." + searchcontent + ".....");
+                    }
+                    else
+                        arrResults.push("");
+                }
+                //内容匹配
+                else if (indexContent != -1) {
+                    indexItem.push(i); // 保存匹配值的索引
+
+                    startindex = (indexContent - step) >= 0 ? (indexContent - step) : 0;
+                    var searchcontent = arr2[i].slice(indexContent - step, indexContent + 5)
+                    arrResults.push("....." + searchcontent + ".....");
+                }
+            }
+
+            // 输出总共匹配到的数目
+            var totalDiv = tmpDiv.cloneNode(true);
+            totalDiv.innerHTML = '<b>总匹配：' + indexItem.length + ' 项<hr></b>';
+            searchResults.appendChild(totalDiv);
+
+            // 未匹配到内容的情况
+            if (indexItem.length == 0) {
+                var itemDiv = tmpDiv.cloneNode(true);
+                itemDiv.innerText = '未匹配到内容...';
+                searchResults.appendChild(itemDiv);
+            }
+
+            // 将所有匹配内容进行组合
+            for (i = 0; i < arrResults.length; i++) {
+                var itemDiv = tmpDiv.cloneNode(true);
+                itemDiv.innerHTML = '<a data-pjax class="searchresults" href="' + arrLinks[indexItem[i]] + '"><b>[' + arrTitles[indexItem[i]] +
+                    ']</b><p>' + arrResults[i] + '</p></a><hr />';
+                searchResults.appendChild(itemDiv);
+            }
+        }
+    </script>
+    </div>
+                
+                <div id="tab1" class="tab">
+                    <div class="bars">
+                        <span></span>
+                        <span></span>
+                        <span></span>
+                    </div>
+                    <div class="close"></div>
+                </div>
+                <div class="col-md-1 col-lg-3"></div>
+                <div id="main" class="col-xs-12 col-sm-12 col-md-12 col-lg-7">
+                    <link rel="stylesheet" href="https://taivasjumala.github.io//media/css/font-awesome.css">
+
+<body>
+    <div class="allcontent" id="postdetail">
+        <div class="postshow postpadding" style="padding-bottom: 0;">
+            
+            <div class="postdetailimg">
+                <img src="https://gitee.com/taivas-jumala/image-host/raw/master/img/What%20Are%20You%20Talking%20About-cover.jpg" class="postimage" style="cursor:auto">
+            </div>
+            <div class="postinfo-detail">
+                <div class="postdate"><i class="fa fa-calendar"></i>2021-04-01</div>
+                <div class="poststatus postdate"><i class="fa fa-clock-o"></i> 13 min read</div>
+                <div class="posttag">
+                    
+                    <a data-pjax href="https://taivasjumala.github.io/tag/ui5ysI3Rr/" class="postlink">
+                        <i class="fa fa-tag"></i> Trie
+                    </a>
+                    
+                    <a data-pjax href="https://taivasjumala.github.io/tag/V9Ps8EtVh4/" class="postlink">
+                        <i class="fa fa-tag"></i> std::map
+                    </a>
+                    
+                </div>
+            </div>
+            
+        <div id="articlecontent">
+            <div id="texttitle" style="text-align: center">
+                <h2 id="ptitle">What Are You Talking About-数据结构-字典树（Trie）</h2>
+                <!-- id 将作为查询条件 -->
+                <div id="pl" style="display:none">https://taivasjumala.github.io/post/what-are-you-talking-about/</div>
+                <div id="rootaddr" style="display:none">https://taivasjumala.github.io/</div>
+                <span id="hotnum">
+                    <h4><i class="fa fa-eye" aria-hidden="true" style="color: #FF8C00;"></i>&nbsp;&nbsp;热度</i>: <i
+                            class="hotnum">loading...</i></h4>
+                </span>
+            </div>
+            <div class="text ">
+                <h1 id="what-are-you-talking-about">What Are You Talking About</h1>
+<blockquote>
+<p>来自 <a href="http://acm.hdu.edu.cn/showproblem.php?pid=1075">HDU OJ, 1075</a></p>
+<blockquote>
+<p>登陆账号提交代码</p>
+</blockquote>
+<p><em><strong>Time Limit: 10000/5000 MS (Java/Others)  Memory Limit: 102400/204800 K (Java/Others)</strong></em></p>
+</blockquote>
+<h2 id="problem-description">Problem Description</h2>
+<p>Ignatius<a href="#reference-anchor-1"><sup>1</sup></a> is so lucky that he met a Martian yesterday. But he didn't know the language the Martians use. The Martian gives him a history book of  Mars and a dictionary when it leaves. Now Ignatius want to translate the history book into English. Can you help him?</p>
+<blockquote>
+<p><strong>问题描述：</strong></p>
+<p>伊格那修是如此幸运啊，他昨天遇见了一个火星人！但是他并不理解火星人使用的语言。这位火星人离开时留下一本火星人的历史书和一本字典。现在伊格那修想要把这那本历史书翻译成英文。你能帮帮他吗？<a href="#reference-anchor-2"><sup>2</sup></a></p>
+</blockquote>
+<h2 id="input">Input</h2>
+<p>The problem has only one test case, the test case consists of two parts, the dictionary part and the book part. The dictionary part starts with a single line contains a string &quot;START&quot;, this string should be ignored,  then some lines follow, each line contains two strings, the first one is a word in English, the second one is the corresponding word in  Martian's language. A line with a single string &quot;END&quot; indicates the end  of the directory part, and this string should be ignored. The book part  starts with a single line contains a string &quot;START&quot;, this string should  be ignored, then an article written in Martian's language. You should  translate the article into English with the dictionary. If you find the  word in the dictionary you should translate it and write the new word  into your translation, if you can't find the word in the dictionary you  do not have to translate it, and just copy the old word to your  translation. Space(' '), tab('\t'), enter('\n') and all the punctuation  should not be translated. A line with a single string &quot;END&quot; indicates  the end of the book part, and that's also the end of the input. All the  words are in the lowercase, and each word will contain at most 10  characters, and each line will contain at most 3000 characters.</p>
+<blockquote>
+<p><strong>输入：</strong></p>
+<p>这个问题只有一个测试用例，这个测试用例由两部分组成——字典部分和历史书的部分。字典部分以包含一个字符串 &quot;START&quot; 的单行开始，这个字符串应该要被忽略，然后紧跟着几行，每行包括两个字符串，第一个字符串是一个英语单词，第二个字符串是一个与其相对应的火星语单词。而单个字符串 &quot;END&quot;  表示字典部分结束，并且这个字符串应该要被忽略。书本部分以一个包括字符串 ”START“ 的单行开始，这个字符串同样需要被忽略，然后是一篇以火星语写成的文章。你要用字典部分把这篇文章翻译成英文。如果你在字典中找到了对应的单词你应该要把它翻译并写入你的译文中，如果你不能找到就不必翻译，只需把原词抄录到你的译文中。空格(' '), 制表符('\t'), 换行符('\n') 和所有的标点符号都不要翻译。一个字符串 ”END“ 表示书本部分的结束，同时这也是输入部分的结束。所有的单词都是小写，并且每个单词最多包括 10 个字符， 并且每行最多包含 3000 个字符。</p>
+</blockquote>
+<h2 id="output">Output</h2>
+<p>In this problem, you have to output the translation of the history book.</p>
+<blockquote>
+<p><strong>输出：</strong></p>
+<p>在这个问题中，你需要输出这本历史书的译文。</p>
+</blockquote>
+<h2 id="sample-input">Sample Input</h2>
+<pre><code>START
+from fiwo
+hello difh
+mars riwosf
+earth fnnvk
+like fiiwj
+END
+STAR
+difh, i'm fiwo riwosf.
+i fiiwj fnnvk!
+END
+
+</code></pre>
+<h2 id="sample-output">Sample Output</h2>
+<pre><code>hello, i'm from mars.
+i like earth!
+
+</code></pre>
+<blockquote>
+<h3 id="hint">Hint</h3>
+<p>Huge input, scanf is recommended.</p>
+<blockquote>
+<p><strong>提示：</strong></p>
+<p>庞大输入，建议使用输入函数 scanf() 。</p>
+</blockquote>
+</blockquote>
+<h2 id="author">Author</h2>
+<p>Ignatius. L</p>
+<hr>
+<h3 id="解法一">解法一</h3>
+<p>​		考虑到一个英文单词对应一个火星文单词，使用 C++ STL 中的 map 可以较为简单的完成此题。</p>
+<pre><code class="language-c++">#include &lt;iostream&gt;
+#include &lt;map&gt;
+#include &lt;string&gt;
+using namespace std;
+
+int main()
+{
+    map&lt;string, string&gt; dictionary;
+
+    scanf(&quot;START\n&quot;);
+    //吸收包括字符串 ”START“ 的单行
+
+    string English, Martian;
+    while (cin &gt;&gt; English &amp;&amp; English != &quot;END&quot;)
+    {
+        cin &gt;&gt; Martian;
+        dictionary[Martian] = English;
+    }
+    //建立一个以火星文为 key 英文为 value 的 map
+
+    cin.ignore();          //忽略“END”后的回车符
+    getline(cin, English); //吸收“START/n”
+
+    string line;         //获取整行
+    string history_book; //保存译文
+    string temporary;    //暂存单词
+
+    while (getline(cin, line) &amp;&amp; line != &quot;END&quot;) //读取整行
+    {
+        for (auto i = line.begin(); i != line.end(); ++i)
+        { //遍历一整行
+            if ((*i) &lt;= 'z' &amp;&amp; (*i) &gt;= 'a')
+            { //该字符是一个单词的部分就加到temporary
+                temporary += (*i);
+            }
+            else
+            {//该字符不是单词的一部分，说明 temporary 中已经保存了完整的单词，下面先对 temporary 中保存的单词来处理
+
+                if (dictionary.find(temporary) != dictionary.end()) //在字典中查找对应的key，判断字典中是否有对应单词
+                { //在字典中找到了对应的单词把它翻译并写入你的译文中
+                    history_book += dictionary[temporary];
+                }
+                else
+                { //不能找到就不必翻译，只需把原词抄录到译文中
+                    history_book += temporary;
+                }
+
+                temporary = &quot;&quot;; //置空temporary
+
+                history_book += (*i); //空格(' '), 制表符('\t'), 换行符('\n') 和所有的标点符号都不要翻译。
+            }
+        }
+        history_book += &quot;\n&quot;; //getline()函数遇到换行符停止，因此这里为每行补回一个'\n'
+    }
+
+    cout &lt;&lt; history_book;
+    //输出译文
+
+    return 0;
+}
+</code></pre>
+<hr>
+<h3 id="解法二">解法二</h3>
+<p>​		这里可以用一个字典树（Tried树）来保存英文单词，字典树中用边代表单词中的字母。</p>
+<p>​		在计算机科学中，trie，又称前缀树或字典树，是一种有序树，用于保存关联数组，其中的键通常是字符串。与二叉查找树不同，键不是直接保存在节点中，而是由节点在树中的位置决定。一个节点的所有子孙都有相同的前缀，也就是这个节点对应的字符串，而根节点对应空字符串。一般情况下，不是所有的节点都有对应的值，只有叶子节点和部分内部节点所对应的键才有相关的值。</p>
+<figure data-type="image" tabindex="1"><img src="https://gitee.com/taivas-jumala/image-host/raw/master/img/Rd4e8a6f8e6ff74adf366c58cc19a5553" alt="字典树" loading="lazy"></figure>
+<pre><code class="language-c++">#include &lt;iostream&gt;
+#include &lt;string&gt;
+using namespace std;
+
+class TaivasjumalaTrie
+{
+private:
+    struct TaivasjumalaTrieNode//字典树的节点
+    {
+        string English;//保存单词
+        TaivasjumalaTrieNode *next[26];//字典树的边（分支），这里只有小写字母，因此有 26 个边（分支）；
+        TaivasjumalaTrieNode()//节点初始化
+        {
+            English = &quot;&quot;;
+            for (int i = 0; i &lt; 26; ++i)
+            {
+                next[i] = nullptr;
+            }
+        }
+    };
+    TaivasjumalaTrieNode root; //根节点
+public:
+    TaivasjumalaTrie();//构造函数
+    TaivasjumalaTrie(string &amp;martian, string &amp;english);
+    void Add(string &amp;martian, string &amp;english);//插入
+    void Delete(string &amp;martian);//删除
+    bool Search(string &amp;martian,string&amp;read);//查找
+};
+
+
+TaivasjumalaTrie::TaivasjumalaTrie()
+{
+}
+
+TaivasjumalaTrie::TaivasjumalaTrie(string &amp;martian, string &amp;english)
+{
+    TaivasjumalaTrieNode *p = &amp;root;
+    int index;
+    for (auto i = martian.begin(); i != martian.end(); ++i)
+    {
+        index = (*i) - 'a';
+        p-&gt;next[index] = new TaivasjumalaTrieNode();
+        p = p-&gt;next[index];
+    }
+    p-&gt;English = english;
+}
+
+void TaivasjumalaTrie::Add(string &amp;martian, string &amp;english)
+{
+    TaivasjumalaTrieNode *p=&amp;root;//保存当前节点位置，从根节点开始遍历
+    int index;//保存下标
+    for(auto i=martian.begin();i!=martian.end();++i)
+    {
+        index = (*i) - 'a';
+        if(p-&gt;next[index]!=nullptr)
+        {//不为空指针，顺分支查找
+            p=p-&gt;next[index];
+        }
+        else
+        {//为空指针，说明到达节点尾部，开辟空间保存字母
+            p-&gt;next[index]=new TaivasjumalaTrieNode();
+            p=p-&gt;next[index];
+        }
+    }
+    p-&gt;English=english;//末尾保存单词
+}
+
+bool TaivasjumalaTrie::Search(string &amp;martian,string&amp;read) //用 read 保存查找到的对应英文，返回是否查找
+{
+    TaivasjumalaTrieNode *p=&amp;root;
+    int index;
+    for(auto i=martian.begin();i!=martian.end();++i)
+    {
+        index=(*i)-'a';
+        if(p-&gt;next[index]==nullptr)
+        {
+            return false;
+        }
+        p=p-&gt;next[index];
+    }
+    if(p-&gt;English==&quot;&quot;)
+    {//因为单词可能有相同的前缀，例如 like 和 likely，但是可能 like 并不在该字典中，这里做个判别
+        return false;
+    }
+    else
+    {
+        read=p-&gt;English;
+    }
+    return true;
+}
+
+int main()
+{
+    scanf(&quot;START\n&quot;);
+    //吸收包括字符串 ”START“ 的单行
+
+    TaivasjumalaTrie dictionary;
+    string English, Martian;
+    while (cin &gt;&gt; English &amp;&amp; English != &quot;END&quot;)
+    {
+        cin &gt;&gt; Martian;
+        dictionary.Add(Martian,English);
+    }
+    //构建字典树
+
+    cin.ignore();          //忽略“END”后的回车符
+    getline(cin, English); //吸收“START/n”
+
+    string line;         //获取整行
+    string history_book; //保存译文
+    string temporary;    //暂存单词
+    string read;         //用于获取树中单词
+
+    while (getline(cin, line) &amp;&amp; line != &quot;END&quot;) //读取整行
+    {
+        for (auto i = line.begin(); i != line.end(); ++i)
+        { //遍历一整行
+            if ((*i) &lt;= 'z' &amp;&amp; (*i) &gt;= 'a')
+            { //该字符是一个单词的部分就加到temporary
+                temporary += (*i);
+            }
+            else
+            {//该字符不是单词的一部分，说明 temporary 中已经保存了完整的单词，下面先对 temporary 中保存的单词来处理
+                if (dictionary.Search(temporary,read)) 
+                { //在字典树中找到了对应的单词把它翻译并写入你的译文中
+                    history_book += read;
+                }
+                else
+                { //不能找到就不必翻译，只需把原词抄录到译文中
+                    history_book += temporary;
+                }
+
+                temporary = &quot;&quot;; //置空temporary
+
+                history_book += (*i); //空格(' '), 制表符('\t'), 换行符('\n') 和所有的标点符号都不要翻译。
+            }
+        }
+        history_book += &quot;\n&quot;; //getline()函数遇到换行符停止，因此这里为每行补回一个'\n'
+    }
+
+    cout &lt;&lt; history_book;
+    //输出译文
+    return 0;
+}
+</code></pre>
+<p>关于我的代码有两点需要提一下：</p>
+<ol>
+<li>这里为了水题，在这个 Trie 类中缺少析构函数，主要是因为我偷懒，如果需要写的话要用递归方法 delete 掉 new 出来的空间。</li>
+<li>Trie 类主要用到增、查，一般不用删除，这个类没有这个方法，我又偷懒了。</li>
+</ol>
+<h3 id="算法分析">算法分析</h3>
+<p>​		C++ STL中的 map 和 字典树在效率方面区别主要体现在查找。</p>
+<p>​		在时间方面对于 map 由于查找的时候用的是红黑树实现，在 n 个条目的字典中效率为 O(log n) ，若字符串长度为 m 则还要算上比较的时间，总的复杂度为 O(m×log n)。而对对于 Trie，查找的时间只与字符串长度有关因此只需 O(m)，就可以完成。<a href="#reference-anchor-3"><sup>3</sup></a></p>
+<p>但是 Trie 事实上是一中空间换时间的做法，为了保存一个字符往往需要含 26 个指针的节点来保存，但是如果有相同前缀的字符串较多，存储密度就会高的多。</p>
+<p>在这题中的提交结果也展示出了符合预期的结果。</p>
+<table>
+<thead>
+<tr>
+<th style="text-align:center">数据结构\效率</th>
+<th style="text-align:center">时间</th>
+<th style="text-align:center">空间</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align:center">C++ STL map</td>
+<td style="text-align:center">1996 MS</td>
+<td style="text-align:center">73608 K</td>
+</tr>
+<tr>
+<td style="text-align:center">Trie</td>
+<td style="text-align:center">1575 MS</td>
+<td style="text-align:center">128736 K</td>
+</tr>
+</tbody>
+</table>
+<div id="reference-anchor-1"> 
+<p>-[1]  这道题的作者为 Ignatius. L 个人猜测昵称灵感来自 San Ignacio de Loyola （1491年－1556年7月31日，西班牙人，耶稣会创始人，罗马公教圣人之一。他在罗马公教会内进行改革，以对抗由马丁·路德等人所领导的宗教改革。</p>
+<div id="reference-anchor-2">
+<p>-[2] <a href="https://jikipedia.com/definition/552155949">&quot;那你能帮帮我吗？&quot;</a></p>
+<div id="reference-anchor-3">
+<p>-[3] 需要注意其他 C++ 内置数据类型和字符串在查找效率方面的区别。</p>
+<blockquote>
+<p><code>std::map</code> and <code>std::set</code> are implemented by compiler vendors using highly balanced binary search trees (e.g. red-black tree, AVL tree).</p>
+<p>As correctly pointed out by David, <code>find</code> would take O(log n) time, where n is the number of elements in the container.</p>
+<p>But that's with primitive data types like <code>int</code>, <code>long</code>, <code>char</code>, <code>double</code> etc., not with strings.</p>
+<p>If <code>std:string</code>, lets say of size 'm', is used as key, traversing the height of the balanced binary search tree will require log n <em>comparisons</em> of the given key with an entry of the tree.</p>
+<p>When <code>std::string</code> is the key of the <code>std::map</code> or <code>std::set</code>, <code>find</code> and <code>insert</code> operations will cost O(m log n), where m is the length of given string that needs to be found.</p>
+</blockquote>
+<p>来自 stack-overflow 论坛 <a href="https://stackoverflow.com/questions/9961742/time-complexity-of-find-in-stdmap">Time complexity of find() in std::map?</a> , answered Jul 10 '13 at 2:24 by <a href="https://stackoverflow.com/users/2138713/arif-ali-saiyed">Arif Ali Saiyed</a></p>
+<p>这里还了解到下次可以试一试 <code>std::unordered_map</code> （ 查找的平均时间复杂度为O(1) ）来做这一道题。</p>
+
+            </div>
+            <hr style="width: 80%;">
+            
+            
+            <div class="postfooter">
+                <ul class="post-copyright">
+                    <li><strong>文章作者：</strong>Taivas Jumala</li>
+            <li><strong>原文链接：</strong>https://taivasjumala.github.io/post/what-are-you-talking-about/</li>
+            <li><strong>版权声明：</strong>本博客所有文章除特别声明外，均采用<i class="fa fa-fw fa-creative-commons"></i>BY-NC-SA
+                许可协议。转载请注明出处！</li>
+            </ul>
+        </div>
+        <div id="otherpost">
+            
+            
+        </div>
+    </div>
+    </div>
+    </div>
+    <!-- 弹窗 -->
+    <div id="myModal" class="modal">
+        <img class="modal-content" id="img01">
+    </div>
+</body>
+<script>
+    //文章阅读热度
+    var pl = $("#pl").html();
+    var rootaddr = $("#rootaddr").html();
+    pl = pl.replace(rootaddr, "");
+    $("#hotnum").attr('id', pl);
+</script>
+                    <div class="toc-container">
+                        <ul class="markdownIt-TOC">
+<li><a href="#what-are-you-talking-about">What Are You Talking About</a>
+<ul>
+<li><a href="#problem-description">Problem Description</a></li>
+<li><a href="#input">Input</a></li>
+<li><a href="#output">Output</a></li>
+<li><a href="#sample-input">Sample Input</a></li>
+<li><a href="#sample-output">Sample Output</a>
+<ul>
+<li><a href="#hint">Hint</a></li>
+</ul>
+</li>
+<li><a href="#author">Author</a>
+<ul>
+<li><a href="#%E8%A7%A3%E6%B3%95%E4%B8%80">解法一</a></li>
+<li><a href="#%E8%A7%A3%E6%B3%95%E4%BA%8C">解法二</a></li>
+<li><a href="#%E7%AE%97%E6%B3%95%E5%88%86%E6%9E%90">算法分析</a></li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+
+                    </div>
+                    <div class="tog">
+                        <div class="toggleContainer">
+                            <div class="toggle">
+                                <i class="fas fa-angle-double-up"></i>
+                            </div>
+                        </div>
+                    </div>
+                    <div id="comment" class="comment" style="background: white">
+                        <div class="commentcontainer">
+                            
+                            <style>
+    @media screen and (min-width: 1300px) {
+        .veditor::placeholder {
+            color: #b3b3b3;
+            font-size: 18px;
+            text-align: center;
+            line-height: 3rem;
+            font-family: kaiti;
+        }
+    }
+</style>
+
+<body>
+    <div id="vcomments">
+    </div>
+    <script src="https://taivasjumala.github.io//media/js/valine.min.js"></script>
+    <script src="https://sdk.jinrishici.com/v2/browser/jinrishici.js" charset="utf-8"></script>
+    <script>
+        var valine = new Valine();
+        var curpath = window.location.pathname;
+        if (curpath[curpath.length - 1] != '/')
+            curpath += '/'
+        valine.init({
+            el: '#vcomments',
+            appId: 'wRjCYEg7znvaXMw3KCAQlKKc-gzGzoHsz',
+            appKey: 'OrxYMAUbXEvGeyfy47pDd3tv',
+            notify: true,
+            verify: false,
+            avatar: 'retro',
+            pageSize: 10,
+            placeholder: '既然来了，何不畅所欲言呢？',
+            visitor: true, // 阅读量统计
+            recordIP: true,
+            path: curpath //[重点] 记得添加path路径
+        });
+    </script>
+    <script type="text/javascript">
+        var jrsc = '既然来了，何不畅所欲言呢？';
+        jinrishici.load(function (result) {
+            // 自己的处理逻辑
+            jrsc = result.data.content + "\n「" + result.data.origin.title + "」" + result.data.origin
+                .dynasty + " · " + result.data.origin.author;
+        });
+    </script>
+
+</body>
+                            <div class="clear"></div>
+                            
+                        </div>
+                    </div>
+                </div>
+                <div class="col-md-1 col-lg-2"></div>
+                <div id="bg">
+                </div>
+            </div>
+            
+        
+        <head>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/aplayer/dist/APlayer.min.css">
+</head>
+
+<body>
+    <div class="miniMode">
+        <meting-js id="myaplayer" server="netease" type="playlist" fixed="true" order="default">
+        </meting-js>
+    </div>
+</body>
+
+
+<script src="https://cdn.jsdelivr.net/npm/jquery@3.2.1/dist/jquery.min.js"></script>
+<script>
+    function aplayerInit() {
+        var aplayerid = "6739089394";
+        var aplayerserver = "netease";
+        var aplayerorder = "default";
+        var aplayerautoplay = "false";
+        var aplayer = $("#myaplayer");
+        aplayer.attr("server", aplayerserver);
+        aplayer.attr("id", aplayerid);
+        aplayer.attr("order", aplayerorder);
+        if (aplayerautoplay == "true")
+            aplayer.attr("autoplay", "true");
+    }
+    aplayerInit();
+</script>
+
+<script src="https://cdn.jsdelivr.net/gh/850552586/ericamcdn@0.1/js/Aplayer.min.js"></script>
+<!-- require MetingJS -->
+<script src="https://cdn.jsdelivr.net/npm/meting@2/dist/Meting.min.js"></script>
+
+<script>
+    function aplayerbtnInit() {
+        var player = document.querySelectorAll('meting-js')[0].aplayer;
+        if(player==undefined)return false;
+        player.lrc.hide();
+        var mbabtn = $("#mbaplayer");
+        if (player.paused == false) {
+            mbabtn.removeClass("fa-play-circle-o");
+            mbabtn.addClass("fa-pause-circle");
+        } else {
+            mbabtn.addClass("fa-play-circle-o");
+            mbabtn.removeClass("fa-pause-circle");
+        }
+    }
+
+    function aplayerPlay() {
+        var player = document.querySelectorAll('meting-js')[0].aplayer;
+        var mbabtn = $("#mbaplayer");
+        if (player.paused == true) {
+            player.play();
+            mbabtn.removeClass("fa-play-circle-o");
+            mbabtn.addClass("fa-pause-circle");
+        } else {
+            player.pause();
+            mbabtn.addClass("fa-play-circle-o");
+            mbabtn.removeClass("fa-pause-circle");
+        }
+    }
+</script>
+        
+    </div>
+    
+    <div id="bgchoice" style="display: none">link
+    </div>
+    
+    <div id="bgurl" style="display:none">https://gitee.com/taivas-jumala/image-host/raw/master/img/golbal-blur-background.jpg</div>
+    
+</body>
+<script>
+    var img = $("img");
+    for (var i = 0; i < img.length; i++) {
+        if (img.eq(i).attr("class") == undefined) {
+            img.eq(i).attr("class", "lazyload");
+            var imgsrc = img.eq(i).attr("src");
+            img.eq(i).attr("data-original", imgsrc);
+            img.eq(i).attr("src", "");
+            img.eq(i).hide();
+        }
+    }
+
+    function refreshImg(imgclass) {
+        // 获取弹窗
+        var modal = document.getElementById('myModal');
+
+        // 获取图片插入到弹窗 - 使用 "alt" 属性作为文本部分的内容
+        var img = document.getElementsByClassName(imgclass);
+        var modalImg = document.getElementById("img01");
+        var captionText = document.getElementById("caption");
+        for (var i in img) {
+            img[i].onclick = function () {
+                modal.style.display = "block";
+                modalImg.src = this.src;
+            }
+        }
+
+        // 图片关闭
+        var modalImg = document.getElementById('img01');
+        // 鼠标点击模型外区域关闭登录框
+        window.onclick = function (event) {
+            if (event.target == modal) {
+                modal.style.display = "none";
+            }
+            if (menupos == 'left')
+                return true;
+            if (event.target == social) {
+                social.style.display = "none";
+            }
+        }
+    }
+
+</script>
+<script>
+    hljs.initHighlightingOnLoad();
+</script>
+<script>
+    //寻找所有code标签，加复制按钮鸭！(行内代码除外)
+    var codes = document.getElementsByTagName('code');
+    if (codes.length) {
+        for (var i = 0; i < codes.length; i++) {
+            //高度/行高=文本行数
+            // var rowNum=Math.round(codes[i].height()/parseFloat(codes[i].css('line-height')));
+            // console.log("当前有"+rowNum+"行");
+            var code_id = "code_id_" + i;
+            codes[i].setAttribute("id", code_id);
+            var ci = "#" + code_id;
+            var codedot = $(ci);
+            var rowNum = Math.round(codedot.height() / parseFloat(codedot.css('line-height')));
+            if (rowNum <= 1) continue;
+            var btn = document.createElement("button");
+            btn.setAttribute("class", "copybt");
+            btn.setAttribute("data-clipboard-target", "#" + code_id);
+            btn.innerHTML = '复制代码';
+            codes[i].parentNode.insertBefore(btn, codes[i]);
+        }
+    };
+    var cop = new ClipboardJS('.copybt');
+    cop.on('success', function (e) {
+        e.trigger.innerHTML = "复制成功~"
+        e.trigger.style.background = "#894e54"
+        e.clearSelection();
+    });
+    cop.on('error', function (e) {
+        e.clearSelection();
+    });
+</script>
+
+<script>
+    $(function () {
+        $('.toggleContainer').click(function () {
+            $('html,body').animate({
+                scrollTop: '0px'
+            }, 800);
+        });
+        $(window).scroll(function () {
+            var st = $(window).scrollTop();
+            if (st > 30) {
+                $(".toggleContainer").fadeIn(400);
+            } else {
+                $(".toggleContainer").fadeOut(100);
+            }
+        });
+    });
+</script>
+
+<script>
+    var bgchoice = $('#bgchoice').html();
+    var bg = $('#bg');
+    var bgurl = document.getElementById("bgurl").innerHTML;
+    if (bgchoice == 'default')
+        for (var i = 0; i < 3; i++)
+            bgurl = bgurl.replace("\\", "/");
+    bg.css("background", "url('" + bgurl + "')");
+</script>
+
+
+<script src="https://taivasjumala.github.io//media/js/index.js"></script>
+
+
+
+<!-- 动态更改上(下)一篇博客图片框长宽 -->
+<script>
+    npcontainer = document.querySelector('#npcontainer');
+    npstyle = window.getComputedStyle(npcontainer, null);
+    npwidth = npstyle.width;
+    npheight = 0.6 * Number(npwidth.replace("px", ""));
+    npheight = npheight.toString() + "px";
+    var op = $(".opimg");
+    op.css("height", npheight);
+</script>
+
+<script src="https://taivasjumala.github.io//media/share/dist/Share.js"></script>
+
+<script>
+    var avatarSrc = $(".avatar").attr("src");
+    var dp = document.getElementsByClassName("describtion")[0].innerHTML;
+</script>
+
+
+<script>
+    var title = document.getElementById("texttitle").getElementsByTagName("h2");
+
+    var share = new Share('.share', {
+        title: title[0].innerHTML,
+        initialized: true,
+        //默认获取网站描述
+        description: dp,
+        //网站图片默认获取的是设置的用户头像
+        image: avatarSrc,
+        //激活的分享网站
+        sites: ["weibo", "qq", "wechat", "douban", "qzone", "facebook", "twitter", "google"],
+        //微信分享PC端会生成二维码分享,移动端如果可以唤起微信最好
+        wechatQrcodeTitle: "微信扫一扫：分享", // 微信二维码提示文字
+        wechatQrcodeHelper: '<p>微信里扫一下二维码</p><p>便可将本文分享至朋友圈。</p>',
+        //关闭的网站分享
+        disabled: ['google', 'linkedin'],
+        wechatQrcodePosition: 'bottom'
+    });
+
+    //点击分享按钮展现出分享icons
+    var sharebtnTag = false;
+    $(".sharebtn").click(function () {
+        if (!sharebtnTag) {
+            $(".share").show();
+            sharebtnTag = true;
+        }
+        else {
+            $(".share").hide();
+            sharebtnTag = false;
+        }
+    })
+
+    var donatebtnTag = false;
+    $(".donateImg").click(function () {
+        if (!donatebtnTag) {
+            $(".donate").show();
+            donatebtnTag = true;
+        }
+        else {
+            $(".donate").hide();
+            donatebtnTag = false;
+        }
+    })
+
+    //加载后的事件同步（阅读量、移动端评论等
+    window.onload = function () {
+        getHotnum();
+        var sharepc = $(".share").eq(0).html();
+        $(".share").eq(1).html(sharepc);
+        document.getElementById("veditor").setAttribute("placeholder", jrsc);
+        aplayerbtnInit();
+    }
+</script>
+
+
+<script>
+    jQuery(document).ready(function ($) {
+        function lazyload() {
+            var oLazyload = $("img.lazyload"),
+                fLazyload = function (hLazyload) {
+                    var nLazyload = $(window).height() + $(document).scrollTop();
+                    oLazyload.each(function () {
+                        $(this).offset().top < nLazyload && ($(this).trigger("appear"), oLazyload =
+                            oLazyload.not(this));
+                    }), 0 == oLazyload.length && $(window).unbind("scroll", fLazyload);
+                };
+            oLazyload.each(function () {
+                $(this).one("appear", function () {
+                    $(this).attr("src", $(this).attr("data-original"));
+                    $(this).fadeIn(500);
+                });
+            }), $(window).bind("scroll", fLazyload), fLazyload();
+        }
+        lazyload();
+        refreshImg("lazyload");
+    });
+</script>
+
+<!-- <script src="https://taivasjumala.github.io//media/js/av-min.js"></script> -->
+<!-- <script src="https://cdn.jsdelivr.net/npm/leancloud-storage@3.13.0/dist/av-min.js"></script> -->
+<!-- <script src="https://cdn.jsdelivr.net/npm/leancloud-storage@4.6.1/dist/av-live-query-min.js"></script> -->
+
